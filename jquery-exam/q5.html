@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        
+* {
+  cursor: none;
+}
+body {
+  cursor: none;
+  background: #111;
+}
+
+.cursor:nth-child(1) {
+  border: 2px solid red;
+  z-index: 1;
+}
+.cursor:nth-child(2) {
+  background-color: #fff;
+  width: 5px; height: 5px;
+}
+
+.cursor{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+h1:hover .cursor {
+  width: 60px !important;
+  height: 60px;
+}
+    </style>
+</head>
+<body>
+    <div class='cursor'></div>
+<div class='cursor'></div>
+<script>
+    $(document)
+  .mousemove(function(e) {
+    $('.cursor')
+      .eq(0)
+      .css({
+        left: e.pageX,
+        top: e.pageY
+      });
+    setTimeout(function() {
+      $('.cursor')
+        .eq(1)
+        .css({
+          left: e.pageX,
+          top: e.pageY
+        });
+    }, 100);
+  })
+</script>
+</body>
+</html>
